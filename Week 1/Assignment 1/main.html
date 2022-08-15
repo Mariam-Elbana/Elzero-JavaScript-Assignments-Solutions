@@ -1,0 +1,37 @@
+ <!-- التكليف 01 -->
+
+<!DOCTYPE html>
+ <html lang="en">  <head>    <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+   <title>Learn JavaScript</title>    
+    <script>     
+        // Code One        
+        /*           
+            This Code Is Not Working Because             
+            The Element Which Selected Not Created Yet        
+        */      
+        document.getElementById("el").style.color = "red";   
+    </script>
+    <script>
+        // Code Two
+         /*
+             This Code Is Not Working Because 
+             The Element Which Selected Not Created Yet
+         */
+       window.onload = function () {
+         document.getElementById("el").style.color = "red";
+       };
+     </script>
+   </head>
+   <body>
+     <h1 id="el">Page Title</h1>
+     <script>
+         // Code Three
+         /*
+             This Code Will be Working Because 
+             The Page Was Loaded & The Element Was Created
+         */
+       document.getElementById("el").style.color = "red";
+     </script>
+   </body>
+ </html>
