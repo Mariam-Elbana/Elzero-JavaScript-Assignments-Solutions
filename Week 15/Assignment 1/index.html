@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: var(--main-color);
+        font-size: 16px;
+      }
+      :root {
+        --main-color: red;
+      }
+      .select-box {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px;
+      }
+      .select-box label {
+        color: #fff;
+        font-size: 20px;
+        margin: 0 10px;
+      }
+      select[name="local"] {
+        padding: 10px;
+        background-color: #3ca5a9;
+        color: #fff;
+        font-size: 17px;
+        font-weight: bold;
+        border-radius: 10px;
+        letter-spacing: 0.4px;
+        border: none;
+        cursor: pointer;
+      }
+      select[name="local"]:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="select-box">
+      <label for="fonts">Font</label>
+      <select name="local" id="fonts">
+        <option value="Cairo">Cairo</option>
+        <option value="Open Sans">Open</option>
+        <option value="Roboto">Roboto</option>
+      </select>
+
+      <label for="colors">Colors</label>
+      <select value="black" name="local" id="colors">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="Palevioletred">Palevioletred</option>
+        <option value="Lightcoral">Lightcoral</option>
+        <option value="white">White</option>
+      </select>
+
+      <label for="sizes">Sizes</label>
+      <select name="local" id="sizes"></select>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
