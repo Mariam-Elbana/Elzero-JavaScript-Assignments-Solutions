@@ -1,44 +1,64 @@
-// Challenge Lesson 122
+// Challenge Lesson 114
 
-let chosen = 1;
+let addTask = document.querySelector(".input");
+let addButton = document.querySelector(".add");
+let divResult = document.querySelector(".tasks");
 
-let myFriends = [
-  { title: "Mariam", age: 24, availabel: true, skills: ["HTML", "CSS"] },
-  { title: "Amr", age: 25, availabel: true, skills: ["Python", "Django"] },
-  { title: "Eman", age: 50, availabel: false, skills: ["PHP", "Laravel"] },
-];
+function doSomeTask(e) {
+    let addTaskCheck = false;
 
-if (chosen === 1) {
-  let {
-    title,
-    age,
-    availabel,
-    skills: [, two],
-  } = myFriends[0];
-  console.log(title);
-  console.log(age);
-  availabel ? console.log(`Availabel`) : console.log(`Not Availabel`);
-  console.log(`${two}`);
-} else if (chosen === 2) {
-  let {
-    title,
-    age,
-    availabel,
-    skills: [, two],
-  } = myFriends[1];
-  console.log(title);
-  console.log(age);
-  availabel ? console.log(`Availabel`) : console.log(`Not Availabel`);
-  console.log(`${two}`);
-} else {
-  let {
-    title,
-    age,
-    availabel,
-    skills: [, two],
-  } = myFriends[2];
-  console.log(title);
-  console.log(age);
-  availabel ? console.log(`Availabel`) : console.log(`Not Availabel`);
-  console.log(`${two}`);
+    if (addTask.value !== "") {
+        addTaskCheck = true;
+
+        // Create Task
+        window.localStorage.setItem("task", addTask.value);
+        let divTask = document.createElement("div");
+        divTask.setAttribute("class", "div-task");
+        let divTaskText = document.createTextNode(
+            `${window.localStorage.getItem("task")}`
+        );
+        let divTaskButton = document.createElement("button");
+        divTaskButton.setAttribute("class", "button-task");
+        let divTaskButtonText = document.createTextNode(`Delete`);
+        divResult.appendChild(divTask);
+        divTask.appendChild(divTaskText);
+        divTask.appendChild(divTaskButton);
+        divTaskButton.appendChild(divTaskButtonText);
+
+        // Remove Task When User Click The Delete Button and Remove From Local Storage
+        divTaskButton.onclick = function () {
+            divTask.remove();
+            window.localStorage.removeItem("task");
+        };
+    }
+
+    // Empty The Input When The User Exist From It
+    addTask.value = "";
+
+    // When User Click On "Add Task" Button And The Input Form Empty
+    if (addTaskCheck === false) {
+        e.preventDefault();
+    }
+}
+
+addButton.onclick = doSomeTask;
+
+if (window.localStorage.getItem("task")) {
+    let divTask = document.createElement("div");
+    divTask.setAttribute("class", "div-task");
+    let divTaskText = document.createTextNode(
+        `${window.localStorage.getItem("task")}`
+    );
+    let divTaskButton = document.createElement("button");
+    divTaskButton.setAttribute("class", "button-task");
+    let divTaskButtonText = document.createTextNode(`Delete`);
+    divResult.appendChild(divTask);
+    divTask.appendChild(divTaskText);
+    divTask.appendChild(divTaskButton);
+    divTaskButton.appendChild(divTaskButtonText);
+
+    divTaskButton.onclick = function () {
+        divTask.remove();
+        window.localStorage.removeItem("task");
+    };
 }
